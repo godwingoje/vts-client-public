@@ -362,13 +362,13 @@ export default function VisitorDetails() {
                 {detailRows.map((row, idx) => (
                   <div
                     key={row.label}
-                    className={`flex min-w-0 flex-col gap-1 xl:gap-0 xl:ps-10 px-4 py-2.5 sm:flex-row sm:items-center sm:px-5 xl:px-6 xl:py-3 ${
+                    className={`flex min-w-0 flex-col gap-6 xl:gap-0 xl:ps-7 py-2.5 sm:flex-row sm:items-center sm:ps-3 xl:px-10 xl:py-3 ${
                       idx !== detailRows.length - 1
                         ? "border-b border-slate-100 dark:border-slate-700"
                         : ""
                     }`}
                   >
-                    <span className="w-full shrink-0 text-xs text-slate-400 sm:w-40 xl:w-44">
+                    <span className="w-full shrink-0 text-xs text-slate-400 w-60 sm:w-80 md:w-80 xl:w-50">
                       {row.label}
                     </span>
 

@@ -2,17 +2,15 @@ import { Button } from "antd";
 import {
   AppstoreOutlined,
   SettingOutlined,
-  MenuOutlined,
   CloseOutlined,
   TeamOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
 import { paths } from "../../../../config/paths";
 import { useOrganization } from "@/features/organizations";
 import { useGetProfileQuery } from "@/features/settings/api/settings-api-slice";
 import { useTheme } from "@/features/theme/hooks/use-theme";
+import type { Dispatch, SetStateAction } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -20,10 +18,19 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-export default function Sidebar() {
-  const [collapsed, setCollapsed] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+type SidebarProps = {
+  collapsed: boolean;
+  mobileOpen: boolean;
+  setMobileOpen: (open: boolean) => void;
+  setCollapsed: Dispatch<SetStateAction<boolean>>;
+};
 
+export default function Sidebar({
+  collapsed,
+  mobileOpen,
+  setMobileOpen,
+  setCollapsed,
+}: SidebarProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { orgSlug } = useOrganization();
@@ -53,9 +60,8 @@ export default function Sidebar() {
       key: "employees",
       label: "Employees",
       href: paths.admin.employees.getHref(orgSlug),
-      icon: '/staff.svg',
+      icon: "/staff.svg",
     },
-
     ...(isSuperAdmin
       ? [
           {
@@ -81,14 +87,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <Button
-        type="text"
-        onClick={() => setMobileOpen(true)}
-        aria-label="Open menu"
-        icon={<MenuOutlined />}
-        className="h-9! w-9! text-slate-500! md:hidden! dark:text-slate-400!"
-      />
-
+      {/* Mobile backdrop */}
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/40 md:hidden"
@@ -114,6 +113,7 @@ export default function Sidebar() {
               />
             )}
 
+            {/* Desktop collapse button */}
             <Button
               type="text"
               onClick={() => setCollapsed((c) => !c)}
@@ -136,6 +136,7 @@ export default function Sidebar() {
               className="hidden! h-7! w-7! text-slate-400! md:inline-flex! dark:text-slate-500!"
             />
 
+            {/* Mobile close button */}
             <Button
               type="text"
               onClick={() => setMobileOpen(false)}
@@ -148,42 +149,58 @@ export default function Sidebar() {
           <TooltipProvider>
             <nav className="mt-1 space-y-1 px-3">
               {navItems.map((item) => {
-              const isActive = location.pathname.startsWith(item.href);
-              const button = (
-                <Button
-                  type="text"
-                  onClick={() => go(item.href)}
-                  className={`flex! h-auto! w-full! items-center rounded-lg! px-3! py-1.5! text-sm! font-medium! ${
-                    isActive
-                      ? "bg-sky-500! text-white! shadow-sm shadow-sky-200 dark:shadow-sky-900!"
-                      : "text-slate-500! hover:bg-slate-50! dark:text-slate-400! dark:hover:bg-slate-800!"
-                  } ${collapsed ? "md:justify-center!" : "justify-start!"}`}
-                >
-                  <span className="text-sm">
-                    {typeof item.icon === "string" ? (
-                      <img
-                        src={item.icon}
-                        alt=""
-                        className={`h-4 w-4 ${isActive ? "brightness-0 invert" : ""}`}
-                      />
-                    ) : (
-                      item.icon
-                    )}
-                  </span>
+                const isActive = location.pathname.startsWith(item.href);
 
-                  <span className={collapsed ? "md:hidden" : ""}>{item.label}</span>
-                </Button>
-              );
+                const button = (
+                  <Button
+                    type="text"
+                    onClick={() => go(item.href)}
+                    className={`flex! h-auto! w-full! items-center rounded-lg! px-3! py-1.5! text-sm! font-medium! ${
+                      isActive
+                        ? "bg-sky-500! text-white! shadow-sm shadow-sky-200 dark:shadow-sky-900!"
+                        : "text-slate-500! hover:bg-slate-50! dark:text-slate-400! dark:hover:bg-slate-800!"
+                    } ${
+                      collapsed
+                        ? "md:justify-center!"
+                        : "justify-start!"
+                    }`}
+                  >
+                    <span className="text-sm">
+                      {typeof item.icon === "string" ? (
+                        <img
+                          src={item.icon}
+                          alt=""
+                          className={`h-4 w-4 ${
+                            isActive ? "brightness-0 invert" : ""
+                          }`}
+                        />
+                      ) : (
+                        item.icon
+                      )}
+                    </span>
 
-              return collapsed ? (
-                <Tooltip key={item.key}>
-                  <TooltipTrigger asChild>{button}</TooltipTrigger>
-                  <TooltipContent>{item.label}</TooltipContent>
-                </Tooltip>
-              ) : (
-                button
-              );
-            })}
+                    <span
+                      className={collapsed ? "md:hidden" : ""}
+                    >
+                      {item.label}
+                    </span>
+                  </Button>
+                );
+
+                return collapsed ? (
+                  <Tooltip key={item.key}>
+                    <TooltipTrigger asChild>
+                      {button}
+                    </TooltipTrigger>
+
+                    <TooltipContent>
+                      {item.label}
+                    </TooltipContent>
+                  </Tooltip>
+                ) : (
+                  <div key={item.key}>{button}</div>
+                );
+              })}
             </nav>
           </TooltipProvider>
         </div>
