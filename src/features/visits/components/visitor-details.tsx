@@ -341,7 +341,7 @@ export default function VisitorDetails() {
 
         <div className="w-full xl:flex xl:min-h-[calc(100vh-3.25rem)] xl:justify-center">
           <div className="flex min-w-0 flex-col gap-4 lg:flex-row lg:gap-6 xl:h-full xl:w-full xl:gap-8 2xl:gap-10">
-            <div className="min-w-0 w-full xl:h-full rounded-xl border border-slate-100 bg-white px-2 shadow-sm shadow-slate-100 sm:px-2 py-6 md:px-2 md:py-8 lg:flex-1 dark:border-slate-800 dark:bg-slate-800 dark:shadow-none xl:px-6 xl:py-8 2xl:px-12 2xl:py-10">
+            <div className="min-w-0 w-full xl:h-full rounded-xl border border-slate-100 bg-white px-4 shadow-sm shadow-slate-100 sm:px-6 py-6 md:px-8 md:py-8 lg:flex-1 dark:border-slate-800 dark:bg-slate-800 dark:shadow-none xl:px-10 xl:py-8 2xl:px-12 2xl:py-10">
               <div className="mb-6 flex flex-col items-center text-center">
                 <div className="mb-2.5">
                   <Avatar name={visitor.name} size="md" />
@@ -393,7 +393,7 @@ export default function VisitorDetails() {
               ) : null}
             </div>
 
-            <div className="min-w-0 w-full rounded-lg border border-slate-100 bg-white px-4 py-4 shadow-sm shadow-slate-100 sm:px-6 sm:py-6 lg:w-[21rem] lg:shrink-0 dark:border-slate-800 dark:bg-slate-800 dark:shadow-none xl:w-[24rem] xl:px-7 xl:py-6 2xl:w-[26rem]">
+            <div className="min-w-0 w-full rounded-lg border border-slate-100 bg-white px-4 py-4 shadow-sm shadow-slate-100 sm:px-6 sm:py-6 lg:w-84 lg:shrink-0 dark:border-slate-800 dark:bg-slate-800 dark:shadow-none xl:w-[24rem] xl:px-7 xl:py-6 2xl:w-104">
               <h3 className="mb-2.5 text-sm font-bold text-slate-800 dark:text-slate-100">
                 Visit Timeline
               </h3>
@@ -443,7 +443,7 @@ export default function VisitorDetails() {
                     className="mb-3 rounded-lg"
                   />
 
-                  <div className="flex flex-col gap-3 sm:flex-row">
+                  <div className="flex gap-1.5 sm:gap-2.5 sm:flex-row">
                     <Button
                       danger
                       loading={isRejecting}
