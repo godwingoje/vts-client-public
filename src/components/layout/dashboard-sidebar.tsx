@@ -6,7 +6,7 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
-import { paths } from "../../../../config/paths";
+import { paths } from "../../config/paths";
 import { useOrganization } from "@/features/organizations";
 import { useGetProfileQuery } from "@/features/settings/api/settings-api-slice";
 import { useTheme } from "@/features/theme/hooks/use-theme";

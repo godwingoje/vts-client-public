@@ -1,6 +1,6 @@
 import LeftLayout from "@/components/layout/left-layout";
 import { Outlet } from "react-router-dom";
-import Header from "../../../../components/layout/header";
+import Header from "./brand-header";
 
 const VisitorLayout = () => {
   return (
