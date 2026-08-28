@@ -65,8 +65,8 @@ export default function Sidebar({
     ...(isSuperAdmin
       ? [
           {
-            key: "users",
-            label: "Users",
+            key: "Admins",
+            label: "Admins",
             href: paths.admin.users.getHref(orgSlug),
             icon: <TeamOutlined />,
           },
