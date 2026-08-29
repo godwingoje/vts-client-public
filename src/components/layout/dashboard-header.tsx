@@ -114,7 +114,7 @@ const DashboardHeader = ({ title }: DashboardHeaderProps) => {
   ];
 
   return (
-    <header className="sticky top-0 z-30 flex min-h-13 items-center justify-between border-b border-slate-100 bg-white/95 ps-2 pe-2 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95 md:ps-5 md:pe-2">
+    <header className="sticky top-0 z-30 flex min-h-13 items-center justify-between border-b border-slate-100 bg-white/95 ps-2 pe-2 backdrop-blur dark:border-slate-600 dark:bg-slate-600 md:ps-5 md:pe-2">
       {/* Left side */}
       <div className="flex min-w-0 items-center">
         <Button
