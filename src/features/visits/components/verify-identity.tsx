@@ -136,7 +136,7 @@ export default function VerifyIdentity() {
               iconPlacement="end"
               loading={isVerifying}
             >
-              Submit Registration
+             Verify Identity
             </Button>
           </div>
       </Form>
