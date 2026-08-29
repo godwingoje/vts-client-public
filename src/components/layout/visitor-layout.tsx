@@ -3,12 +3,10 @@ import { Button } from "antd";
 import LeftLayout from "@/components/layout/left-layout";
 import { Outlet, useNavigate } from "react-router-dom";
 import Header from "@/components/layout/brand-header";
-
+import { ThemeToggle } from "../ui/theme-toggle";
 
 const VisitorLayout = () => {
-
   const navigate = useNavigate();
-
 
   return (
     <div className="flex min-h-screen w-full md:flex-row">
@@ -23,10 +21,14 @@ const VisitorLayout = () => {
               type="link"
               icon={<ArrowLeftOutlined />}
               onClick={() => navigate(-1)}
-              className="px-0! text-sky-500!"
+              className="mb-1 px-0! text-sky-500!"
             >
               Back
             </Button>
+
+            <div className="absolute top-4 right-4 z-10">
+              <ThemeToggle />
+            </div>
 
             <Outlet />
           </div>
