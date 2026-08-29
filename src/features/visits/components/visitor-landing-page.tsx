@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { LandingPageBackground } from "../animations/landing-page-background";
 import { paths } from "../../../config/paths";
 import { useOrganization } from "@/features/organizations";
-import { ThemeToggle } from "../../../components/ui/theme-toggle";
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -15,9 +14,7 @@ export default function LandingPage() {
       className="relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden bg-white px-4 py-10 dark:bg-slate-900"
       style={{ position: "relative", isolation: "isolate" }}
     >
-      <div className="absolute top-4 right-4 z-10">
-        <ThemeToggle />
-      </div>
+     
 
       <LandingPageBackground />
 
