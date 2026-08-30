@@ -160,7 +160,7 @@ const DashboardHeader = ({ title }: DashboardHeaderProps) => {
           >
             <button
               type="button"
-              className="inline-flex cursor-pointer items-center gap-1 rounded-sm px-1 text-sm font-medium text-slate-800 transition hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-900"
+              className="inline-flex cursor-pointer items-center gap-1 rounded-sm px-1 text-sm font-medium text-slate-800 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-900"
               aria-label={`Open account menu for ${displayName}`}
             >
               <Avatar
