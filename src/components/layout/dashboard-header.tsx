@@ -66,10 +66,10 @@ const DashboardHeader = ({ title }: DashboardHeaderProps) => {
     {
       key: "update-profile",
       label: (
-        <span className="inline-flex items-center gap-1 text-[11.5px]">
+        <span className="inline-flex items-center gap-1 text-[11.5px] text-slate-700 dark:text-slate-200">
           <span
             aria-hidden="true"
-            className="inline-block h-3.5 w-3.5 bg-current opacity-55"
+            className="inline-block h-3.5 w-3.5 shrink-0 bg-current"
             style={{
               WebkitMaskImage: "url(/profile.svg)",
               maskImage: "url(/profile.svg)",
@@ -92,7 +92,7 @@ const DashboardHeader = ({ title }: DashboardHeaderProps) => {
           {
             key: "update-system-settings",
             label: (
-              <span className="inline-flex items-center gap-1 text-[11.5px]">
+              <span className="inline-flex items-center gap-1 text-[11.5px] text-slate-700 dark:text-slate-200">
                 <SettingOutlined />
                 Update System Settings
               </span>
@@ -105,10 +105,10 @@ const DashboardHeader = ({ title }: DashboardHeaderProps) => {
     {
       key: "logout",
       label: (
-        <span className="inline-flex items-center gap-0.5 text-[11.5px]">
+        <span className="inline-flex items-center gap-0.5 text-[11.5px] text-slate-700 dark:text-slate-200">
           <span
             aria-hidden="true"
-            className="inline-block h-3.5 w-3.5 bg-current"
+            className="inline-block h-3.5 w-3.5 shrink-0 bg-current"
             style={{
               WebkitMaskImage: "url(/back.svg)",
               maskImage: "url(/back.svg)",
